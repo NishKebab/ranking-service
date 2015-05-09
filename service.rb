@@ -25,6 +25,8 @@ post '/games/new' do
 	game = Games.new
 	game.players = params["players"]
 	game.start_positions = params["start_positions"]
+	game.save
+	game.id.to_json
 end
 
 get '/games/:id' do |id|
