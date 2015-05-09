@@ -6,6 +6,6 @@ get '/hi' do
 end
 
 post '/users' do
-	request.body
+	request.body.read
 end
 
