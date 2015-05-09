@@ -16,4 +16,21 @@ get '/users' do
 	Users.all.to_json
 end
 
+get '/games' do 
+	Games.all.to_json
+end
+
+post '/games/new' do
+	params = JSON.parse(request.body.read)
+	game = Games.new
+	game.players = params["players"]
+	game.start_positions = params["start_positions"]
+end
+
+get '/games/:id' do |id|
+	game = Game.find_by(id: id.to_i)
+end
+
+
+
 
