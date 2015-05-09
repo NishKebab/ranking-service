@@ -6,6 +6,9 @@ get '/hi' do
 end
 
 post '/users' do
-	request.body.read
+	user = JSON.parse(request.body.read)
+	halt "Please provide name" if user["name"].nil?
+	halt "Please provide email" if user["email"].nil?
+	Users.create(name: user["name"], email: user["email"])
 end
 
