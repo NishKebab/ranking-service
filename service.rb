@@ -12,3 +12,8 @@ post '/users' do
 	Users.create(name: user["name"], email: user["email"])
 end
 
+get '/users' do 
+	Users.all
+end
+
+
