@@ -13,7 +13,7 @@ post '/users' do
 end
 
 get '/users' do 
-	Users.all
+	Users.all.to_json
 end
 
 
