@@ -35,6 +35,18 @@ get '/games/:id' do |id|
 	game.to_json
 end
 
+put '/games/:id' do |id|
+	game = Games.find_by(id: id)
+	params = JSON.parse(request.body.read)
+	halt "Provide something to update" if params.nil?
+	params.each do |k,v|
+		game.update(k.to_sym => v)
+	end
+	game.save
+	game.to_json
+end
+
+
 
 
 
