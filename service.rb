@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'json'
 require_relative 'app'
 
 get '/hi' do
