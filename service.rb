@@ -27,11 +27,12 @@ post '/games/new' do
 	game.players = params["players"]
 	game.start_positions = params["start_positions"]
 	game.save
-	game.id.to_json
+	request.host + "/games/%s" % game.id
 end
 
 get '/games/:id' do |id|
 	game = Game.find_by(id: id.to_i)
+	game.to_json
 end
 
 
