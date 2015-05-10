@@ -31,7 +31,7 @@ post '/games/new' do
 end
 
 get '/games/:id' do |id|
-	game = Game.find_by(id: id.to_i)
+	game = Games.find_by(id: id)
 	game.to_json
 end
 
